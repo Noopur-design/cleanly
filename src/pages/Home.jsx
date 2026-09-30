@@ -147,11 +147,11 @@ export default function Home() {
               modern technology, and a customer-first approach, we provide reliable laundry and dry cleaning
               services right at your doorstep.
             </p>
-            <div className="mt-8 grid grid-cols-3 gap-4">
+            <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
               {stats.slice(0, 3).map((s) => (
-                <div key={s.label} className="rounded-2xl bg-sky p-4 text-center">
-                  <div className="text-2xl font-bold text-brand">{s.value}</div>
-                  <div className="mt-1 text-xs text-slatey">{s.label}</div>
+                <div key={s.label} className="flex flex-col items-center justify-center rounded-2xl bg-sky px-2 py-4 text-center sm:px-4">
+                  <div className="text-xl font-bold text-brand sm:text-2xl">{s.value}</div>
+                  <div className="mt-1 text-[11px] leading-tight text-slatey sm:text-xs">{s.label}</div>
                 </div>
               ))}
             </div>
