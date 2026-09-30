@@ -1,23 +1,18 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Check, Minus, Download } from 'lucide-react'
+import { Download } from 'lucide-react'
 import useReveal from '../hooks/useReveal'
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
 import PricingCard from '../components/PricingCard'
+import ComparePlans from '../components/ComparePlans'
 import FaqAccordion from '../components/FaqAccordion'
 import CtaBanner from '../components/CtaBanner'
 import Icon from '../components/Icon'
 import Button from '../components/Button'
 import {
-  plans, serviceWisePricing, addOns, compareRows, faqCategories, images,
+  plans, serviceWisePricing, addOns, faqCategories, images,
 } from '../data/site'
-
-function Cell({ v }) {
-  if (v === true) return <Check className="mx-auto h-5 w-5 text-brand" strokeWidth={3} />
-  if (v === false) return <Minus className="mx-auto h-5 w-5 text-ink/20" />
-  return <span className="text-sm text-ink/80">{v}</span>
-}
 
 export default function Pricing() {
   useReveal()
@@ -50,7 +45,7 @@ export default function Pricing() {
             <div data-reveal className="inline-flex rounded-full bg-sky p-1 text-sm font-semibold">
               {[['monthly', 'Monthly Plans'], ['kg', 'Per Kg Pricing']].map(([k, label]) => (
                 <button key={k} onClick={() => setMode(k)}
-                  className={`rounded-full px-4 py-2 transition ${mode === k ? 'bg-ink text-white' : 'text-ink/60'}`}>
+                  className={`rounded-full px-4 py-2.5 transition ${mode === k ? 'bg-ink text-white' : 'text-ink/60'}`}>
                   {label}
                 </button>
               ))}
@@ -113,32 +108,7 @@ export default function Pricing() {
         <div className="container-px grid gap-10 lg:grid-cols-[1.6fr_1fr]">
           <div>
             <SectionHeading eyebrow="Comparison" title="Compare Plans" subtitle="See what's included in each plan." />
-            <div data-reveal className="mt-8 overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-ink/5">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[520px] text-left">
-                  <thead>
-                    <tr className="border-b border-ink/10 bg-ivory">
-                      <th className="p-4 text-sm font-semibold text-ink">Features</th>
-                      {plans.map((p) => (
-                        <th key={p.name} className={`p-4 text-center text-sm font-semibold ${p.popular ? 'bg-sky text-brand' : 'text-ink'}`}>
-                          {p.name}<span className="block text-xs font-normal text-slatey">{p.price} {p.unit}</span>
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {compareRows.map((r, i) => (
-                      <tr key={r.feature} className={i % 2 ? 'bg-ivory/50' : ''}>
-                        <td className="p-4 text-sm font-medium text-ink/80">{r.feature}</td>
-                        <td className="p-4 text-center"><Cell v={r.basic} /></td>
-                        <td className="bg-sky/40 p-4 text-center"><Cell v={r.standard} /></td>
-                        <td className="p-4 text-center"><Cell v={r.premium} /></td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <ComparePlans />
           </div>
 
           <div data-reveal className="flex flex-col overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-ink/5">

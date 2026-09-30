@@ -24,7 +24,7 @@ export default function Footer() {
                   aria-label={s.label}
                   target={s.href.startsWith('http') ? '_blank' : undefined}
                   rel="noreferrer"
-                  className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-white transition hover:bg-brand hover:-translate-y-0.5"
+                  className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white transition hover:bg-brand hover:-translate-y-0.5"
                 >
                   <Icon name={s.icon} className="h-4 w-4" />
                 </a>

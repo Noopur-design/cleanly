@@ -52,8 +52,9 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Right actions */}
-        <div className="hidden items-center gap-4 lg:flex">
+        {/* Right actions — only alongside the desktop links (xl+), otherwise
+            the button would float in the middle next to the hamburger. */}
+        <div className="hidden items-center gap-4 xl:flex">
           <Button to="/contact" size="md">Book a Pickup</Button>
         </div>
 

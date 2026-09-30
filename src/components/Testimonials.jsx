@@ -65,14 +65,16 @@ export default function Testimonials({ compact = false }) {
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-1">
           {Array.from({ length: pages }).map((_, i) => (
             <button
               key={i}
               onClick={() => setPage(i)}
               aria-label={`Go to page ${i + 1}`}
-              className={`h-2.5 rounded-full transition-all ${i === page ? 'w-6 bg-brand' : 'w-2.5 bg-ink/15'}`}
-            />
+              className="grid h-10 place-items-center px-1.5"
+            >
+              <span className={`h-2.5 rounded-full transition-all ${i === page ? 'w-6 bg-brand' : 'w-2.5 bg-ink/15'}`} />
+            </button>
           ))}
         </div>
         <button

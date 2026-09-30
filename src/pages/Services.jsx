@@ -53,7 +53,7 @@ export default function Services() {
               <button
                 key={f.key}
                 onClick={() => setActive(f.key)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+                className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
                   active === f.key ? 'bg-brand text-white shadow-soft' : 'bg-sky text-ink/70 hover:bg-brand/10 hover:text-brand'
                 }`}
               >
